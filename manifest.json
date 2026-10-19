@@ -1,0 +1,13 @@
+{
+  "name": "Pomodoro Tasker",
+  "short_name": "Tasker",
+  "description": "Plan your day and focus intentionally.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#10131e",
+  "theme_color": "#151927",
+  "icons": [
+    {"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}
+  ]
+}
