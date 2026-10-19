@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#151927"><meta name="description" content="Plan your day, focus intentionally, and track your progress offline.">
+<link rel="manifest" href="manifest.json"><link rel="stylesheet" href="styles.css">
+<title>Pomodoro Tasker</title>
+</head>
+<body>
+<header class="topbar"><a class="brand" href="#" aria-label="Pomodoro Tasker home"><span class="brand-icon">◷</span><span>pomodoro<span class="brand-light">tasker</span></span></a><button id="notifyBtn" class="icon-btn" aria-label="Enable notifications" title="Enable notifications">♧</button></header>
+<main class="app">
+<section class="greeting"><div><p class="eyebrow" id="todayLabel">YOUR DAY</p><h1>Make time<br>for what matters.</h1><p class="muted">Small focused steps add up.</p></div><div class="day-ring"><span id="doneCount">0</span><small>of <span id="totalCount">0</span><br>tasks</small></div></section>
+<section class="timer-card">
+<div class="section-kicker"><span class="live-dot"></span> FOCUS SESSION <span class="timer-mode" id="timerMode">READY</span></div>
+<div class="timer-display" id="timerDisplay">25:00</div><p class="timer-sub" id="timerSub">One thing at a time. You've got this.</p>
+<div class="timer-actions"><button class="btn btn-primary" id="startTimer">▶ Start focus</button><button class="btn btn-quiet" id="resetTimer">↺ Reset</button></div>
+<div class="timer-presets"><button class="preset active" data-minutes="25">Focus 25m</button><button class="preset" data-minutes="5">Short break 5m</button><button class="preset" data-minutes="15">Long break 15m</button></div>
+</section>
+<section class="tasks-section"><div class="section-heading"><div><p class="eyebrow">STAY ON TRACK</p><h2>Today's plan <span class="count-pill" id="taskPill">0</span></h2></div><button id="addTaskBtn" class="add-btn">＋ Add task</button></div>
+<div class="filters" role="tablist"><button class="filter active" data-filter="all">All tasks</button><button class="filter" data-filter="open">To do</button><button class="filter" data-filter="done">Completed</button></div>
+<form id="taskForm" class="task-form hidden">
+<label for="taskTitle">Task name</label><input id="taskTitle" maxlength="120" placeholder="What do you want to work on?" required>
+<div class="form-grid"><div><label for="taskTime">Start time</label><input id="taskTime" type="time"></div><div><label for="taskDuration">Focus time (min)</label><input id="taskDuration" type="number" min="1" max="480" value="25" required></div></div>
+<label for="taskPriority">Priority</label><select id="taskPriority"><option value="normal">Normal</option><option value="high">High priority</option><option value="low">Low priority</option></select>
+<label for="taskNotes">Notes (optional)</label><textarea id="taskNotes" rows="2" maxlength="500" placeholder="A little detail to help you get started"></textarea>
+<div class="form-actions"><button type="button" class="btn btn-quiet" id="cancelTask">Cancel</button><button class="btn btn-primary" type="submit">Save task</button></div>
+</form>
+<div id="taskList" class="task-list"></div><div id="emptyState" class="empty-state"><div class="empty-icon">✳</div><h3>A fresh start.</h3><p>Add a task to make a plan for today.</p><button class="btn btn-primary" id="emptyAdd">＋ Add your first task</button></div>
+</section>
+<section class="stats-grid"><article class="stat-card"><span class="stat-icon">◷</span><div><p class="stat-label">FOCUS TIME TODAY</p><strong id="focusTotal">0 min</strong></div></article><article class="stat-card"><span class="stat-icon">✓</span><div><p class="stat-label">TASKS COMPLETED</p><strong id="completedTotal">0</strong></div></article></section>
+<footer><span>Made for a more intentional day.</span><button id="exportBtn" class="text-btn">Export backup</button><button id="importBtn" class="text-btn">Import</button><input id="importFile" type="file" accept="application/json" hidden></footer>
+</main>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<dialog id="promptDialog" class="prompt-dialog"><p class="eyebrow">TASK REMINDER</p><h2 id="promptTitle">Ready to focus?</h2><p id="promptText">Your task is scheduled.</p><div class="dialog-actions"><button id="skipPrompt" class="btn btn-quiet">Skip</button><button id="snoozePrompt" class="btn btn-quiet">Remind in 5m</button><button id="startPrompt" class="btn btn-primary">Start now</button></div></dialog>
+<script src="app.js" defer></script>
+</body></html>
