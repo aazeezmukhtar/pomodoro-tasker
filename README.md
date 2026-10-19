@@ -33,6 +33,10 @@ Web notifications and exact-time reminders are limited by browser and operating-
 
 There is no account, server database, or analytics in this version. Export a JSON backup before clearing browser data or changing devices. Importing a backup replaces the tasks currently stored in the browser.
 
+## Testing
+
+See [TESTING.md](./TESTING.md) for the Phase 1 manual regression checklist. Browser/device testing is still required; the checklist is not evidence that every item has passed.
+
 ## Planned next improvements
 
 - Future-dated tasks and recurring schedules.
