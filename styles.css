@@ -5,3 +5,6 @@
 .tally-link{display:inline-flex;align-items:center;gap:5px;padding:10px 13px;border-radius:11px;background:var(--accent);color:#172018;text-decoration:none;font-size:12px;font-weight:800;white-space:nowrap}
 .tally-link:hover{filter:brightness(.96)}
 @media(max-width:380px){.tally-link{padding:9px 10px;font-size:11px}.topbar-actions{gap:7px}}
+
+/* Shared visual tokens */
+:root{--brand-accent:#a8f074;--brand-bg:#10131e;--brand-panel:#191e2d;--brand-panel-2:#202638;--brand-text:#f4f5fa;--brand-muted:#9da5bb;--brand-line:#30374b}.icon-btn.theme-toggle{font-size:18px}.tally-link{background:var(--brand-accent);color:#172018}

@@ -3,7 +3,11 @@
 const $ = id => document.getElementById(id);
 const STORE = 'pomodoro-tasker-data-v1';
 const TIMER_STORE = 'pomodoro-tasker-timer-v1';
+const THEME_STORE='pomodoro-tasker-theme-v1';
 let tasks = loadTasks(), filter = 'all', editingId = null, timer = loadTimer(), interval = null, toastTimeout, promptedIds = new Set();
+function getTheme(){try{return localStorage.getItem(THEME_STORE)||'dark'}catch{return 'dark'}}
+function applyTheme(theme=getTheme()){document.documentElement.dataset.theme=theme;const b=$('themeToggle');if(b){b.textContent=theme==='dark'?'☀':'☾';b.setAttribute('aria-label',theme==='dark'?'Switch to light theme':'Switch to dark theme');b.title=theme==='dark'?'Switch to light theme':'Switch to dark theme'}const m=document.querySelector('meta[name="theme-color"]');if(m)m.content=theme==='dark'?'#10131e':'#f5f7f2'}
+function setTheme(theme){try{localStorage.setItem(THEME_STORE,theme)}catch{}applyTheme(theme)}
 function loadTasks(){try{const d=JSON.parse(localStorage.getItem(STORE)||'[]');return Array.isArray(d)?d:[]}catch{return []}}
 function saveTasks(){localStorage.setItem(STORE,JSON.stringify(tasks));render()}
 function today(){const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`}
@@ -34,6 +38,8 @@ $('resetTimer').addEventListener('click',()=>{stopTick();timer.running=false;tim
 document.querySelectorAll('.preset').forEach(b=>b.addEventListener('click',()=>{stopTick();timer.running=false;timer.mode=Number(b.dataset.minutes)===25?'Focus':'Break';timer.total=Number(b.dataset.minutes)*60;timer.remaining=timer.total;timer.endsAt=null;timer.taskId=null;saveTimer();paintTimer()}));
 function beep(){try{const C=window.AudioContext||window.webkitAudioContext;if(!C)return;const c=new C();[0,.22,.44].forEach((offset,i)=>{const o=c.createOscillator(),g=c.createGain();o.frequency.value=[660,790,880][i];g.gain.setValueAtTime(.001,c.currentTime+offset);g.gain.exponentialRampToValueAtTime(.15,c.currentTime+offset+.02);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+offset+.18);o.connect(g);g.connect(c.destination);o.start(c.currentTime+offset);o.stop(c.currentTime+offset+.2)});setTimeout(()=>c.close(),1200)}catch{}}
 function notify(title,body){if('Notification'in window&&Notification.permission==='granted'){try{new Notification(title,{body,icon:'./icon.svg',tag:'pomodoro-tasker'})}catch{}}}
+$('themeToggle').addEventListener('click',()=>setTheme(getTheme()==='dark'?'light':'dark'));
+window.addEventListener('storage',e=>{if(e.key===THEME_STORE)applyTheme(e.newValue||'dark')});applyTheme();
 $('notifyBtn').addEventListener('click',async()=>{if(!('Notification'in window)){toast('Notifications are not supported by this browser');return}try{const p=await Notification.requestPermission();toast(p==='granted'?'Notifications enabled':'Notification permission not granted')}catch{toast('Could not enable notifications')}});
 function checkSchedule(){const now=new Date(),key=today(),time=`${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;for(const t of tasks){if(t.date!==key||!t.time||t.done||promptedIds.has(t.id))continue;if(t.time===time){promptedIds.add(t.id);notify('Time for: '+t.title,'Your scheduled task is ready.');$('promptTitle').textContent='Ready to get started?';$('promptText').textContent=t.title+' · '+t.duration+' minutes planned.';$('promptDialog').showModal();$('startPrompt').onclick=()=>{$('promptDialog').close();startFocusFor(t)};$('snoozePrompt').onclick=()=>{t.time=minutesFromNow(5);promptedIds.delete(t.id);saveTasks();$('promptDialog').close();toast('Reminder moved 5 minutes later')};$('skipPrompt').onclick=()=>{$('promptDialog').close();toast('Skipped for now')}}}}
 function minutesFromNow(min){const d=new Date(Date.now()+min*60000);return `${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`}

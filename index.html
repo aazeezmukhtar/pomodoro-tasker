@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#151927"><meta name="description" content="Plan your day, focus intentionally, and track your progress offline.">
-<link rel="manifest" href="manifest.json"><link rel="stylesheet" href="styles.css">
+<script>try{document.documentElement.dataset.theme=localStorage.getItem('pomodoro-tasker-theme-v1')||'dark'}catch{document.documentElement.dataset.theme='dark'}</script><link rel="manifest" href="manifest.json"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="theme.css">
 <title>Pomodoro Tasker</title>
 </head>
 <body>
-<header class="topbar"><a class="brand" href="#" aria-label="Pomodoro Tasker home"><span class="brand-icon">◷</span><span>pomodoro<span class="brand-light">tasker</span></span></a><div class="topbar-actions"><a class="tally-link" href="tally.html">＋ Target tally</a><button id="notifyBtn" class="icon-btn" aria-label="Enable notifications" title="Enable notifications">♧</button></div></header>
+<header class="topbar"><a class="brand" href="#" aria-label="Pomodoro Tasker home"><span class="brand-icon">◷</span><span>pomodoro<span class="brand-light">tasker</span></span></a><div class="topbar-actions"><a class="tally-link" href="tally.html">＋ Target tally</a><button id="themeToggle" class="icon-btn theme-toggle" aria-label="Switch theme" title="Switch theme">☀</button><button id="notifyBtn" class="icon-btn" aria-label="Enable notifications" title="Enable notifications">♧</button></div></header>
 <main class="app">
 <section class="greeting"><div><p class="eyebrow" id="todayLabel">YOUR DAY</p><h1>Make time<br>for what matters.</h1><p class="muted">Small focused steps add up.</p></div><div class="day-ring"><span id="doneCount">0</span><small>of <span id="totalCount">0</span><br>tasks</small></div></section>
 <section class="timer-card">

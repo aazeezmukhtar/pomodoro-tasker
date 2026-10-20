@@ -1,0 +1,50 @@
+/* Shared design system for both Pomodoro Tasker and Target Tally */
+:root{--brand-accent:#a8f074;--brand-bg:#10131e;--brand-panel:#191e2d;--brand-panel-2:#202638;--brand-text:#f4f5fa;--brand-muted:#9da5bb;--brand-line:#30374b;--brand-font:'DM Sans',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+:root[data-theme="dark"]{color-scheme:dark;--bg:var(--brand-bg);--surface:var(--brand-panel);--surface2:var(--brand-panel-2);--text:var(--brand-text);--muted:var(--brand-muted);--line:var(--brand-line);--accent:var(--brand-accent);--red:#ff8c8c;--yellow:#f5cb74;--green:var(--brand-accent);--shadow:0 12px 32px #0002}
+:root[data-theme="light"]{color-scheme:light;--bg:#f5f7f2;--surface:#fff;--surface2:#edf1e8;--text:#20271d;--muted:#687363;--line:#dfe6d8;--accent:#70b941;--red:#c63d48;--yellow:#8c6a00;--green:#4d8d25;--shadow:0 8px 24px rgba(36,52,28,.07)}
+body{font-family:var(--brand-font)}
+button,input,textarea,select{accent-color:var(--accent)}
+:focus-visible{outline-color:var(--accent)}
+/* Shared light theme surfaces for the main focus/task workspace */
+:root[data-theme="light"] body{background:radial-gradient(ellipse at 50% -10%,#e5eddc 0,transparent 48%),var(--bg);color:var(--text)}
+:root[data-theme="light"] .topbar{border-bottom-color:var(--line)}
+:root[data-theme="light"] .brand{color:var(--text)}
+:root[data-theme="light"] .brand-icon{background:var(--accent);color:#172018}
+:root[data-theme="light"] .icon-btn{background:var(--surface);border-color:var(--line);color:var(--text)}
+:root[data-theme="light"] .day-ring{border-color:var(--line);border-top-color:var(--accent)}
+:root[data-theme="light"] .timer-card{background:linear-gradient(140deg,#fff,#edf2e8 95%);border-color:var(--line);box-shadow:var(--shadow)}
+:root[data-theme="light"] .timer-mode{border-color:var(--line)}
+:root[data-theme="light"] .btn-primary,:root[data-theme="light"] .add-btn{background:var(--accent);color:#172018}
+:root[data-theme="light"] .btn-quiet{background:var(--surface2);color:var(--text);border-color:var(--line)}
+:root[data-theme="light"] .preset.active{background:#70b94118;border-color:#70b94155;color:#4d8d25}
+:root[data-theme="light"] .count-pill{background:var(--surface2);color:var(--muted)}
+:root[data-theme="light"] .filter.active{color:#4d8d25;border-bottom-color:var(--accent)}
+:root[data-theme="light"] .task-item,:root[data-theme="light"] .task-form,:root[data-theme="light"] .stat-card{background:var(--surface);border-color:var(--line)}
+:root[data-theme="light"] .task-check{border-color:#9aa894}
+:root[data-theme="light"] .task-check:checked{background:var(--accent);border-color:var(--accent)}
+:root[data-theme="light"] .task-item.is-done .task-title{color:var(--muted)}
+:root[data-theme="light"] .priority{background:var(--surface2);color:var(--muted)}
+:root[data-theme="light"] .priority.high{background:#c63d4814;color:var(--red)}
+:root[data-theme="light"] .task-form input,:root[data-theme="light"] .task-form select,:root[data-theme="light"] .task-form textarea{background:#fbfcf9;border-color:var(--line);color:var(--text)}
+:root[data-theme="light"] .stat-icon,:root[data-theme="light"] .empty-icon{background:#70b9411c;color:#4d8d25}
+:root[data-theme="light"] .toast{background:#20271d;color:#fff}
+:root[data-theme="light"] .prompt-dialog{background:var(--surface);border-color:var(--line);color:var(--text);box-shadow:var(--shadow)}
+:root[data-theme="light"] .prompt-dialog::backdrop{background:#26302070}
+:root[data-theme="light"] footer{color:var(--muted)}
+/* Shared tally workspace surfaces and controls */
+:root[data-theme="dark"] .tally-topbar .brand-icon{background:var(--brand-accent);color:#172018}
+:root[data-theme="dark"] .tally-app .primary-btn{background:var(--brand-accent);color:#172018}
+:root[data-theme="light"] .tally-topbar{border-bottom-color:var(--line)}
+:root[data-theme="light"] .tally-topbar .brand-icon{background:var(--accent);color:#172018}
+:root[data-theme="light"] .tally-app .primary-btn{background:var(--accent);color:#172018}
+:root[data-theme="light"] .daily-card,:root[data-theme="light"] .counter-card,:root[data-theme="light"] .routine-card,:root[data-theme="light"] .history-item,:root[data-theme="light"] .summary-strip,:root[data-theme="light"] .stat-card,:root[data-theme="light"] .weekly-chart,:root[data-theme="light"] .backup-card{background:var(--surface);border-color:var(--line);box-shadow:var(--shadow)}
+:root[data-theme="light"] .daily-card .sun-icon{background:#eaf5dd;color:#4d8d25}
+:root[data-theme="light"] .card-menu,:root[data-theme="light"] .text-btn,:root[data-theme="light"] .back-link{color:var(--muted)}
+:root[data-theme="light"] .mini-btn,:root[data-theme="light"] .secondary-btn,:root[data-theme="light"] .theme-btn{background:var(--surface);border-color:var(--line);color:var(--text)}
+:root[data-theme="light"] .mode-chip,:root[data-theme="light"] .routine-chip,:root[data-theme="light"] .empty-art{background:var(--surface2);color:var(--muted)}
+:root[data-theme="light"] .count-btn{color:#172018}
+:root[data-theme="light"] .modal{background:var(--surface);border-color:var(--line);color:var(--text)}
+:root[data-theme="light"] .modal input,:root[data-theme="light"] .modal textarea,:root[data-theme="light"] .modal select{background:#fbfcf9;border-color:var(--line);color:var(--text)}
+:root[data-theme="light"] .menu-pop{background:var(--surface);border-color:var(--line)}
+:root[data-theme="light"] .menu-pop button{color:var(--text)}
+:root[data-theme="light"] .toast{background:#20271d;color:#fff}
