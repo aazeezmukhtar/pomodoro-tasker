@@ -43,3 +43,18 @@ See [TESTING.md](./TESTING.md) for the Phase 1 manual regression checklist. Brow
 - Upcoming agenda, missed-task handling, and planned-vs-actual focus reporting.
 - More complete focus-cycle settings and reminder controls.
 - Expanded accessibility and cross-device testing.
+
+
+## Target Tally
+
+The app now includes a separate **Target Tally** workspace at [tally.html](./tally.html), linked from the main Pomodoro Tasker screen.
+
+- Create target countdown cards (for example, repeat a line 200 times) or open tallies.
+- Count by tapping the card or its dedicated button; undo the last tap.
+- Group counters into named routines and start fresh sessions.
+- Review saved sessions, daily totals, completed targets, and recent activity.
+- Switch between light and dark themes.
+- Data is stored locally under a separate browser storage key from the Pomodoro timer/tasks.
+- The tally page is included in the service-worker app shell for offline access after it has been cached.
+
+The tally feature is an independent workspace and does not alter existing task or timer records.
