@@ -58,3 +58,17 @@ The app now includes a separate **Target Tally** workspace at [tally.html](./tal
 - The tally page is included in the service-worker app shell for offline access after it has been cached.
 
 The tally feature is an independent workspace and does not alter existing task or timer records.
+
+
+## Unified app architecture and design system
+
+Pomodoro Tasker and Target Tally are two workspaces within one app, not separate products. Both pages share the same global light/dark theme preference and the same design tokens.
+
+- `theme.css` is the shared theme layer for palette, typography, surfaces, controls, and light-mode overrides.
+- The theme toggle is available on both workspaces and saves to `pomodoro-tasker-theme-v1`.
+- Theme changes synchronize between both pages when they are open in separate tabs.
+- The existing task and timer storage keys remain unchanged. Target Tally retains its own `pomodoro-tasker-tally-v1` data key, so this visual integration does not overwrite task or timer data.
+- Target card colours are still per-counter accents; the overall app palette remains consistent.
+- The service-worker cache was versioned to include the shared theme stylesheet.
+
+The theme is applied globally. The next visual QA pass should check both pages at phone and desktop widths, especially dialogs, form controls, notification prompts, and any browser-specific native UI.
