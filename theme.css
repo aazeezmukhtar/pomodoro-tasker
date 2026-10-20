@@ -1,5 +1,7 @@
 /* Shared design system for both Pomodoro Tasker and Target Tally */
-:root{--brand-accent:#a8f074;--brand-bg:#10131e;--brand-panel:#191e2d;--brand-panel-2:#202638;--brand-text:#f4f5fa;--brand-muted:#9da5bb;--brand-line:#30374b;--brand-font:'DM Sans',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+:root{--brand-accent:#a8f074;--brand-bg:#10131e;--brand-panel:#191e2d;--brand-panel-2:#202638;--brand-text:#f4f5fa;--brand-muted:#9da5bb;--brand-line:#30374b;--brand-font:'DM Sans',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;--font-display:'Manrope','DM Sans',system-ui,sans-serif}
+:root[data-theme="dark"]{--panel:var(--surface);--panel2:var(--surface2);--accent-ink:#172018}
+:root[data-theme="light"]{--panel:var(--surface);--panel2:var(--surface2);--accent-ink:#172018}
 :root[data-theme="dark"]{color-scheme:dark;--bg:var(--brand-bg);--surface:var(--brand-panel);--surface2:var(--brand-panel-2);--text:var(--brand-text);--muted:var(--brand-muted);--line:var(--brand-line);--accent:var(--brand-accent);--red:#ff8c8c;--yellow:#f5cb74;--green:var(--brand-accent);--shadow:0 12px 32px #0002}
 :root[data-theme="light"]{color-scheme:light;--bg:#f5f7f2;--surface:#fff;--surface2:#edf1e8;--text:#20271d;--muted:#687363;--line:#dfe6d8;--accent:#70b941;--red:#c63d48;--yellow:#8c6a00;--green:#4d8d25;--shadow:0 8px 24px rgba(36,52,28,.07)}
 body{font-family:var(--brand-font)}
@@ -48,3 +50,53 @@ button,input,textarea,select{accent-color:var(--accent)}
 :root[data-theme="light"] .menu-pop{background:var(--surface);border-color:var(--line)}
 :root[data-theme="light"] .menu-pop button{color:var(--text)}
 :root[data-theme="light"] .toast{background:#20271d;color:#fff}
+
+
+/* Shared component rules and responsive/accessibility baseline */
+:root{font-family:var(--brand-font);background:var(--bg);color:var(--text);--control-height:44px}
+html{background:var(--bg);color:var(--text);scroll-behavior:smooth}
+body{background-color:var(--bg);color:var(--text);font-family:var(--brand-font);overflow-wrap:anywhere}
+button,input,select,textarea{font:inherit}
+button,a,input,select,textarea,[role="button"]{-webkit-tap-highlight-color:transparent}
+button,a{touch-action:manipulation}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid color-mix(in srgb,var(--accent) 72%,transparent);outline-offset:3px}
+button:disabled{cursor:not-allowed;opacity:.55}
+:where(.btn,.btn-primary,.btn-quiet,.add-btn,.icon-btn,.theme-btn,.primary-btn,.secondary-btn,.tab,.filter,.preset,.tally-link){min-height:var(--control-height)}
+:where(.btn-quiet,.secondary-btn,.theme-btn,.icon-btn){background:var(--surface2);border-color:var(--line);color:var(--text)}
+:where(.btn-primary,.add-btn,.primary-btn,.tally-link){background:var(--accent);color:var(--accent-ink,#172018)}
+:where(.task-item,.task-form,.stat-card,.timer-card,.daily-card,.counter-card,.routine-card,.history-item,.summary-strip,.weekly-chart,.backup-card,.modal,.prompt-dialog){color:var(--text)}
+:where(.task-item,.task-form,.stat-card,.daily-card,.counter-card,.routine-card,.history-item,.summary-strip,.weekly-chart,.backup-card,.modal,.prompt-dialog){border-color:var(--line)}
+:where(.task-form input,.task-form select,.task-form textarea,.modal input,.modal select,.modal textarea){background:var(--surface2);border-color:var(--line);color:var(--text)}
+:where(.topbar,.tally-topbar){border-bottom-color:var(--line)}
+:where(.brand,.tally-app h1,.tally-app h2,.tally-app h3){color:var(--text)}
+.tally-app h1 span{color:var(--accent)}
+.tally-app .primary-btn{color:var(--accent-ink,#172018)}
+.tally-app .danger-btn{background:var(--red);color:#fff}
+.tally-app .counter-card{min-width:0}
+.tally-app .card-title,.tally-app .routine-card h3,.tally-app .history-main strong{overflow-wrap:anywhere}
+.tally-app .modal{max-width:calc(100vw - 24px)}
+:root[data-theme="dark"] body{background:radial-gradient(ellipse at 50% -10%,#252d43 0,transparent 48%),var(--bg)}
+:root[data-theme="dark"] .tally-app .primary-btn{background:var(--accent);color:#172018}
+:root[data-theme="light"] .topbar,:root[data-theme="light"] .tally-topbar{border-bottom-color:var(--line)}
+:root[data-theme="light"] .icon-btn,:root[data-theme="light"] .theme-btn{background:var(--surface);border-color:var(--line);color:var(--text)}
+:root[data-theme="light"] .timer-card{background:linear-gradient(140deg,var(--surface),var(--surface2));border-color:var(--line)}
+:root[data-theme="light"] .btn-quiet,:root[data-theme="light"] .secondary-btn{background:var(--surface2);border-color:var(--line);color:var(--text)}
+:root[data-theme="light"] .task-item,:root[data-theme="light"] .task-form,:root[data-theme="light"] .stat-card,:root[data-theme="light"] .daily-card,:root[data-theme="light"] .counter-card,:root[data-theme="light"] .routine-card,:root[data-theme="light"] .history-item,:root[data-theme="light"] .summary-strip,:root[data-theme="light"] .weekly-chart,:root[data-theme="light"] .backup-card{background:var(--surface);border-color:var(--line)}
+:root[data-theme="light"] .task-form input,:root[data-theme="light"] .task-form select,:root[data-theme="light"] .task-form textarea,:root[data-theme="light"] .modal input,:root[data-theme="light"] .modal select,:root[data-theme="light"] .modal textarea{background:#fbfcf9;color:var(--text);border-color:var(--line)}
+:root[data-theme="light"] .tally-app h1 span{color:#4d8d25}
+:root[data-theme="light"] .tally-app .count-btn{color:#172018}
+:root[data-theme="light"] .tally-app .modal{background:var(--surface);color:var(--text)}
+:root[data-theme="light"] .tally-app .menu-pop{background:var(--surface);border-color:var(--line)}
+:root[data-theme="light"] .tally-app .menu-pop button{color:var(--text)}
+:root[data-theme="light"] .task-item.is-done .task-title{color:var(--muted)}
+:root[data-theme="light"] .toast{background:#20271d;color:#fff}
+@media(max-width:600px){
+.topbar,.tally-topbar{height:auto;min-height:64px;padding:10px 14px;gap:8px}.brand{font-size:16px;gap:7px;min-width:0}.brand-icon{flex:0 0 32px}
+.topbar-actions,.tally-top-actions{gap:6px}.tally-link{padding:8px 10px;font-size:11px}.icon-btn,.theme-btn{width:40px;height:40px;flex:0 0 40px}
+.tally-app{padding-left:14px;padding-right:14px}.tally-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;padding:14px 0 20px}.tab{padding:9px 4px;font-size:11px;min-width:0}
+.page-heading{align-items:flex-start;gap:10px}.page-heading .primary-btn{white-space:normal;max-width:44%;padding:10px}
+.counter-grid,.routine-list{grid-template-columns:minmax(0,1fr)}.daily-card{padding:18px 16px}.daily-metrics{gap:18px;justify-content:space-between;flex-wrap:wrap}.daily-metrics strong{font-size:22px}
+.form-row,.form-grid{grid-template-columns:minmax(0,1fr)}.modal{padding:18px;max-height:calc(100dvh - 24px);overflow:auto}.modal-actions,.dialog-actions{flex-wrap:wrap}.modal-actions>*{min-width:0}.backup-card{flex-wrap:wrap;gap:12px}
+}
+@media(max-width:360px){.topbar-actions{gap:4px}.tally-link{font-size:10px;padding:7px}.greeting{gap:8px}.greeting h1{font-size:27px}.day-ring{width:68px;height:68px}.timer-actions{flex-wrap:wrap}.filters{gap:0}.filter{padding:10px 8px}.page-heading h1{font-size:26px}.daily-metrics{gap:12px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}

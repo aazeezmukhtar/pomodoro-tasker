@@ -1,36 +1,48 @@
-# Phase 1 — Manual Smoke Test Checklist
+# Regression test plan — Pomodoro Tasker + Target Tally
 
-Use this checklist on the deployed HTTPS site or on `http://localhost` after serving the repository with a static server. Browser storage, notifications, and service workers behave differently when opening `index.html` directly as a file.
+Run checks on HTTPS or a local static server (python -m http.server 8080). Browser storage and service workers do not work as intended from a file URL.
 
-## Task management
-- [ ] Add a task with a title only; it appears in Today's plan.
-- [ ] Add a task with a start time, duration, priority, and notes; each value is displayed correctly.
-- [ ] Edit a task title and details; verify the updated values and the “Task updated” confirmation.
-- [ ] Complete a task, switch between All tasks / To do / Completed, and verify the counts and filters.
-- [ ] Delete a task and confirm it disappears.
-- [ ] Reload the page; saved tasks and completion state remain.
-- [ ] Enter HTML-like text in the title and notes; it displays as text rather than markup.
+## Automated/source checks
+- [ ] Run node --check app.js and node --check tally.js (syntax only; does not execute browser APIs).
+- [ ] Confirm both HTML pages load theme.css after their workspace stylesheet.
+- [ ] Confirm storage keys pomodoro-tasker-data-v1, pomodoro-tasker-timer-v1, pomodoro-tasker-tally-v1, and pomodoro-tasker-theme-v1 remain unchanged.
+- [ ] Confirm the service-worker cache version is incremented and all listed app-shell files exist.
+- [ ] Confirm the service-worker page fallback is navigation-only, never a fake CSS/JS/image response.
 
-## Timer
-- [ ] Start, pause, resume, and reset the timer.
-- [ ] Switch between the 25-, 5-, and 15-minute presets.
-- [ ] Start a timer from a task and verify the task title appears in the timer area.
-- [ ] For a short test, temporarily set a preset or task duration to a small value and let the timer finish; verify completion feedback and focus time accounting.
-- [ ] Let a running timer expire while the tab is backgrounded, then return; verify it completes once and records focus time once.
-- [ ] Reload after a task-linked timer expires; verify the expired session is completed and accounted for once.
+## Tasks — CRUD
+- [ ] Add a title-only task and a task with time, duration, priority, and notes.
+- [ ] Edit a task, complete/reopen it, check filters/counts, then delete it.
+- [ ] Reload and verify task data and completion state persist.
+- [ ] Enter HTML-like text in title/notes and verify it renders as text.
+- [ ] Export task backup; import it; cancel an import and test malformed JSON.
 
-## Reminders and offline behavior
-- [ ] Grant notification permission and verify the UI reports that notifications are enabled.
-- [ ] Schedule a task a minute or two ahead and keep the app open; verify a prompt appears around the scheduled minute.
-- [ ] Test Start now, Remind in 5m, and Skip in the prompt.
-- [ ] Reload after the service worker has installed, then use the app offline; verify the app shell and saved local tasks still load.
-- [ ] Confirm expectations: scheduled task prompts are only checked while app JavaScript is running and are not guaranteed while the app is closed or the device is asleep.
+## Timer lifecycle
+- [ ] Start, pause, resume, reset, and switch 25/5/15-minute presets.
+- [ ] Start a timer from a task and confirm the task label and focus-time accounting.
+- [ ] Test a short expiry and confirm completion feedback and accounting happen once.
+- [ ] Reload during a running timer and verify remaining time is reconciled correctly.
 
-## Backup and restore
-- [ ] Export a JSON backup and confirm the downloaded file contains the expected tasks.
-- [ ] Import that backup and verify the task list is restored.
-- [ ] Cancel the import confirmation and verify existing tasks remain unchanged.
-- [ ] Try an invalid JSON file and verify a readable error message appears.
+## Target Tally — counters, undo, routines, history
+- [ ] Create/edit/delete a target counter and an open tally.
+- [ ] Count several times, undo one count, and verify count and daily totals decrease correctly.
+- [ ] Complete a target, verify completion/history, then start a fresh session.
+- [ ] Create/edit/delete a routine, assign counters, start a fresh routine, and verify links remain correct.
+- [ ] Verify history and stats after counting, undoing, completing, and resetting.
+- [ ] Export tally backup, cancel restore, restore a valid backup, and test invalid JSON.
+- [ ] Verify Tally restore does not change task/timer data, and task restore does not overwrite Tally data.
+
+## Themes, navigation, responsiveness
+- [ ] Switch light/dark theme on each page; reload and verify persistence.
+- [ ] Open both pages in separate tabs, switch theme in one, and verify the other tab synchronizes.
+- [ ] Check consistent typography, surface colours, buttons, focus outlines, and feedback.
+- [ ] Test 320px, 360px, 390px, 768px, and desktop widths; verify no page-level horizontal overflow.
+- [ ] Verify touch targets, dialog scrolling, forms, tabs, and links between both workspaces.
+
+## Offline and fresh install
+- [ ] Clear site data, go online, open both pages once, and wait for service-worker installation.
+- [ ] Reload, switch offline, open both pages via internal navigation and direct URL, and verify cached app shells render.
+- [ ] While offline, verify uncached CSS/JS/image requests do not return HTML.
+- [ ] Update the app and confirm the new cache version replaces older pomodoro-tasker-* caches without deleting unrelated caches.
 
 ## Test record
-Record browser/device, date, pass/fail, and any console errors before considering Phase 1 fully validated. This checklist is a manual test plan; checked items should only be marked after testing on the target browser/device.
+Record device/browser, viewport width, date, pass/fail, and console/network errors. This document is a test plan; mark items complete only after testing on the target browser/device. Source edits alone do not imply browser testing.

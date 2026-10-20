@@ -69,6 +69,6 @@ Pomodoro Tasker and Target Tally are two workspaces within one app, not separate
 - Theme changes synchronize between both pages when they are open in separate tabs.
 - The existing task and timer storage keys remain unchanged. Target Tally retains its own `pomodoro-tasker-tally-v1` data key, so this visual integration does not overwrite task or timer data.
 - Target card colours are still per-counter accents; the overall app palette remains consistent.
-- The service-worker cache was versioned to include the shared theme stylesheet.
+- The service-worker cache is versioned and uses navigation-only HTML fallbacks; failed asset requests no longer receive the app's HTML document as fake CSS/JavaScript.
 
-The theme is applied globally. The next visual QA pass should check both pages at phone and desktop widths, especially dialogs, form controls, notification prompts, and any browser-specific native UI.
+The theme is applied globally. Responsive shared rules cover small phone, tablet, and desktop layouts, but real-browser visual QA and offline testing are still required. See TESTING.md.
