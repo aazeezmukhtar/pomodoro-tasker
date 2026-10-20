@@ -57,6 +57,7 @@ button,input,textarea,select{accent-color:var(--accent)}
 html{background:var(--bg);color:var(--text);scroll-behavior:smooth}
 body{background-color:var(--bg);color:var(--text);font-family:var(--brand-font);overflow-wrap:anywhere}
 button,input,select,textarea{font:inherit}
+h1,h2,h3,.greeting h1,.section-heading h2,.timer-display,.stat-card strong{font-family:var(--font-display)}
 button,a,input,select,textarea,[role="button"]{-webkit-tap-highlight-color:transparent}
 button,a{touch-action:manipulation}
 button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid color-mix(in srgb,var(--accent) 72%,transparent);outline-offset:3px}
