@@ -22,6 +22,13 @@ Run checks on HTTPS or a local static server (python -m http.server 8080). Brows
 - [ ] Test a short expiry and confirm completion feedback and accounting happen once.
 - [ ] Reload during a running timer and verify remaining time is reconciled correctly.
 
+## Quick counter
+- [ ] Open Quick count from the tally navigation and verify the initial count and default label.
+- [ ] Increment several times, decrement once, and verify the count never goes below zero.
+- [ ] Rename the counter, reload, leave and return, and verify the name/count persist.
+- [ ] Reset a non-zero count, confirm the prompt, and verify reset returns it to zero; cancel reset and verify the value stays unchanged.
+- [ ] Export/import a tally backup and verify quick-counter label/count are included and restored; import an older backup without quickCounter and verify the feature safely defaults to zero.
+
 ## Target Tally — counters, undo, routines, history
 - [ ] Create/edit/delete a target counter and an open tally.
 - [ ] Count several times, undo one count, and verify count and daily totals decrease correctly.

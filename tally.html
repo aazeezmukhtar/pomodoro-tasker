@@ -17,10 +17,22 @@
 <main class="tally-app">
   <nav class="tally-tabs" aria-label="Tally navigation">
     <button class="tab active" data-view="home">⌂ <span>Counters</span></button>
+    <button class="tab" data-view="quick">＋ <span>Quick count</span></button>
     <button class="tab" data-view="routines">▦ <span>Routines</span></button>
     <button class="tab" data-view="history">↺ <span>History</span></button>
     <button class="tab" data-view="stats">▥ <span>Stats</span></button>
   </nav>
+  <section class="view" id="view-quick">
+    <div class="page-heading"><div><p class="eyebrow">SIMPLE, INSTANT COUNTING</p><h1>Quick counter</h1><p class="muted">A straightforward counter for anything you need to count.</p></div></div>
+    <section class="quick-counter-panel">
+      <form id="quickCounterNameForm" class="quick-name-form"><label for="quickCounterName">What are you counting?</label><div class="quick-name-row"><input id="quickCounterName" maxlength="70" placeholder="e.g. People, repetitions, items" aria-label="Counter name"><button class="secondary-btn" type="submit">Save name</button></div></form>
+      <p class="quick-counter-label" id="quickCounterLabel">Quick counter</p>
+      <output class="quick-counter-value" id="quickCounterValue" aria-live="polite">0</output>
+      <div class="quick-counter-controls"><button class="quick-minus" id="quickDecrease" type="button" aria-label="Decrease count by one" disabled>−</button><button class="quick-plus" id="quickIncrease" type="button" aria-label="Increase count by one">＋ <span>Count</span></button></div>
+      <div class="quick-counter-footer"><span>Tap + to count, or − to undo one.</span><button class="text-btn" id="quickReset" type="button">↺ Reset count</button></div>
+    </section>
+    <p class="quick-counter-note">Your count and label are saved automatically on this device, including when you leave the page.</p>
+  </section>
   <section class="view active" id="view-home">
     <div class="page-heading"><div><p class="eyebrow" id="todayLabel">YOUR SPACE</p><h1>Make every tap <span>count.</span></h1><p class="muted">Set a target. Keep going until zero.</p></div><button class="primary-btn" id="addCounterBtn">＋ New counter</button></div>
     <section class="daily-card"><div class="daily-heading"><div><p class="eyebrow">TODAY'S PROGRESS</p><h2 id="dailyHeadline">Ready when you are.</h2></div><span class="sun-icon">✳</span></div><div class="daily-metrics"><div><strong id="todayCount">0</strong><span>taps today</span></div><div><strong id="todayDone">0</strong><span>targets completed</span></div><div><strong id="activeCount">0</strong><span>active counters</span></div></div><div class="progress-track"><span id="dailyProgress"></span></div></section>

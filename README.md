@@ -49,6 +49,7 @@ See [TESTING.md](./TESTING.md) for the Phase 1 manual regression checklist. Brow
 
 The app now includes a separate **Target Tally** workspace at [tally.html](./tally.html), linked from the main Pomodoro Tasker screen.
 
+- Use a simple Quick Counter with +/− controls, a reset confirmation, a custom label, and automatic local persistence.
 - Create target countdown cards (for example, repeat a line 200 times) or open tallies.
 - Count by tapping the card or its dedicated button; undo the last tap.
 - Group counters into named routines and start fresh sessions.
