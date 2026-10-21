@@ -41,3 +41,7 @@
 .report-note{font-size:10px;line-height:1.5;color:var(--muted);margin:12px 1px 0}
 :root[data-theme="light"] .weekly-report{background:var(--surface);border-color:var(--line)}:root[data-theme="light"] .weekly-chart{background:#f7f9f4}
 @media(max-width:420px){.weekly-report{padding:14px 10px}.report-summary{gap:5px}.report-metric{padding:10px 7px}.report-metric span{font-size:9px}.weekly-chart{gap:3px;padding-left:4px;padding-right:4px}.week-day-tasks{font-size:8px}.report-badge{font-size:8px;padding:6px}}
+
+
+/* Recurring task indicator */
+.repeat-tag{display:inline-flex;align-items:center;gap:4px;padding:3px 6px;border:1px solid var(--line);border-radius:6px;background:var(--panel2);color:var(--muted);font-size:9px;font-weight:800;letter-spacing:.35px;white-space:nowrap}

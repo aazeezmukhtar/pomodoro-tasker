@@ -24,6 +24,7 @@
 <div class="task-date-field"><label for="taskDate">Planned date</label><input id="taskDate" name="taskDate" type="date" required aria-describedby="taskDateHelp"><small id="taskDateHelp">Choose the day you want to work on this task.</small></div>
 <div class="form-grid"><div><label for="taskTime">Start time</label><input id="taskTime" type="time"></div><div><label for="taskDuration">Focus time (min)</label><input id="taskDuration" type="number" min="1" max="480" value="25" required></div></div>
 <label for="taskPriority">Priority</label><select id="taskPriority"><option value="normal">Normal</option><option value="high">High priority</option><option value="low">Low priority</option></select>
+<label for="taskRecurrence">Repeat</label><select id="taskRecurrence"><option value="none">Does not repeat</option><option value="daily">Every day</option><option value="weekdays">Weekdays (Mon–Fri)</option><option value="weekly">Every week</option><option value="monthly">Every month</option></select>
 <label for="taskNotes">Notes (optional)</label><textarea id="taskNotes" rows="2" maxlength="500" placeholder="A little detail to help you get started"></textarea>
 <div class="form-actions"><button type="button" class="btn btn-quiet" id="cancelTask">Cancel</button><button class="btn btn-primary" type="submit">Save task</button></div>
 </form>

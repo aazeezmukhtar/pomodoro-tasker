@@ -5,7 +5,8 @@ Pomodoro Tasker is a mobile-first, installable task planner and focus timer. The
 ## Included in this starter release
 
 - Add, edit, complete, and delete tasks for today.
-- Give tasks a start time, estimated focus duration, priority, and optional notes.
+- Give tasks a start time, estimated focus duration, priority, recurrence, and optional notes.
+- Repeat tasks daily, on weekdays, weekly, or monthly; completing one creates the next occurrence on its scheduled date.
 - Start a focus session directly from a task.
 - See completed focus time against each task's planned duration.
 - Review a rolling 7-day report of task-linked focus sessions and completed tasks.
