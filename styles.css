@@ -7,3 +7,12 @@
 @media(max-width:380px){.tally-link{padding:9px 10px;font-size:11px}.topbar-actions{gap:7px}}
 
 .icon-btn.theme-toggle{font-size:18px}
+
+/* Daily planning and date navigation */
+.plan-date-bar{display:flex;align-items:center;gap:9px;margin-top:20px;padding:10px 12px;border:1px solid var(--line);background:var(--panel);border-radius:14px}
+.plan-date-input{display:flex;flex:1;min-width:0;align-items:center;justify-content:space-between;gap:10px}
+.plan-date-input span{font-size:10px;font-weight:800;letter-spacing:1.1px;color:var(--muted)}
+.plan-date-input input{min-width:0;width:auto;max-width:160px;background:var(--panel2);border:1px solid var(--line);color:var(--text);padding:8px 9px;border-radius:9px;font:600 12px 'DM Sans',sans-serif}
+.day-nav,.today-btn{flex-shrink:0;border:1px solid var(--line);border-radius:10px;background:var(--panel2);color:var(--text);min-width:36px;height:36px;font-size:21px;font-weight:700;cursor:pointer}
+.day-nav:disabled{opacity:.35;cursor:not-allowed}.today-btn{font-size:11px;padding:0 10px}
+@media(max-width:420px){.plan-date-bar{gap:6px;padding:8px}.plan-date-input{flex-direction:column;align-items:flex-start;gap:4px}.plan-date-input input{width:100%;max-width:none;font-size:11px;padding:7px}.day-nav{min-width:32px;width:32px;height:34px}.today-btn{padding:0 8px}}

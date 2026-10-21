@@ -17,9 +17,11 @@
 <div class="timer-presets"><button class="preset active" data-minutes="25">Focus 25m</button><button class="preset" data-minutes="5">Short break 5m</button><button class="preset" data-minutes="15">Long break 15m</button></div>
 </section>
 <section class="tasks-section"><div class="section-heading"><div><p class="eyebrow">STAY ON TRACK</p><h2>Today's plan <span class="count-pill" id="taskPill">0</span></h2></div><button id="addTaskBtn" class="add-btn">＋ Add task</button></div>
+<div class="plan-date-bar"><button id="previousDay" class="day-nav" type="button" aria-label="Previous day">‹</button><button id="todayPlan" class="today-btn" type="button">Today</button><label class="plan-date-input" for="planDate"><span id="planDateLabel">TODAY’S PLAN</span><input id="planDate" type="date" aria-label="Choose planning date"></label><button id="nextDay" class="day-nav" type="button" aria-label="Next day">›</button></div>
 <div class="filters" role="tablist"><button class="filter active" data-filter="all">All tasks</button><button class="filter" data-filter="open">To do</button><button class="filter" data-filter="done">Completed</button></div>
 <form id="taskForm" class="task-form hidden">
 <label for="taskTitle">Task name</label><input id="taskTitle" maxlength="120" placeholder="What do you want to work on?" required>
+<label for="taskDate">Planned date</label><input id="taskDate" type="date" required>
 <div class="form-grid"><div><label for="taskTime">Start time</label><input id="taskTime" type="time"></div><div><label for="taskDuration">Focus time (min)</label><input id="taskDuration" type="number" min="1" max="480" value="25" required></div></div>
 <label for="taskPriority">Priority</label><select id="taskPriority"><option value="normal">Normal</option><option value="high">High priority</option><option value="low">Low priority</option></select>
 <label for="taskNotes">Notes (optional)</label><textarea id="taskNotes" rows="2" maxlength="500" placeholder="A little detail to help you get started"></textarea>
