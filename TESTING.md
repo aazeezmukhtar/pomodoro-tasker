@@ -55,3 +55,5 @@ Run checks on HTTPS or a local static server (python -m http.server 8080). Brows
 
 ## Test record
 Record device/browser, viewport width, date, pass/fail, and console/network errors. This document is a test plan; mark items complete only after testing on the target browser/device. Source edits alone do not imply browser testing.
+
+- [ ] Edit a recurring task without changing Repeat and verify the setting is preserved; deliberately select Does not repeat and verify that choice is saved.
