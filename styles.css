@@ -45,3 +45,7 @@
 
 /* Recurring task indicator */
 .repeat-tag{display:inline-flex;align-items:center;gap:4px;padding:3px 6px;border:1px solid var(--line);border-radius:6px;background:var(--panel2);color:var(--muted);font-size:9px;font-weight:800;letter-spacing:.35px;white-space:nowrap}
+
+
+/* Guided focus / break cycle action */
+.cycle-action-btn{display:block;width:100%;margin-top:10px;border-color:var(--accent);color:var(--text);font-weight:800}.cycle-action-btn.hidden{display:none}

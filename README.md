@@ -11,6 +11,7 @@ Pomodoro Tasker is a mobile-first, installable task planner and focus timer. The
 - See completed focus time against each task's planned duration.
 - Review a rolling 7-day report of task-linked focus sessions and completed tasks.
 - Focus timer presets (25-minute focus, 5-minute short break, and 15-minute long break), pause/resume, and reset.
+- Guided focus/break cycles: completed focus sessions recommend a 5-minute break, with a 15-minute break after every fourth completed focus session.
 - Local task and timer persistence.
 - Browser notification permission, scheduled-task prompts while the app is open, and a sound when the focus timer finishes.
 - JSON export/import for backups.
