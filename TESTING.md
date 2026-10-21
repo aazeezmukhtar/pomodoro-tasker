@@ -59,3 +59,5 @@ Record device/browser, viewport width, date, pass/fail, and console/network erro
 - [ ] Edit a recurring task without changing Repeat and verify the setting is preserved; deliberately select Does not repeat and verify that choice is saved.
 
 - [ ] Complete a focus timer and verify the suggested break action; verify the fourth completed focus session recommends 15 minutes, break completion offers a focus session, and presets/reset/task-linked focus still work.
+
+- [ ] Let a focus timer complete and verify the next-break button becomes visibly available; choose it and verify a break starts. Let the break finish and verify the focus action appears and starts a focus session. Reload with a completed timer and verify the suggested action remains available.

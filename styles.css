@@ -49,3 +49,7 @@
 
 /* Guided focus / break cycle action */
 .cycle-action-btn{display:block;width:100%;margin-top:10px;border-color:var(--accent);color:var(--text);font-weight:800}.cycle-action-btn.hidden{display:none}
+
+
+/* Make the completed-cycle action clear and easy to find on mobile */
+.cycle-action-btn{display:block;width:100%;min-height:48px;margin-top:10px;border:2px solid var(--accent);background:var(--panel2);color:var(--text);font-weight:850;font-size:14px;position:relative;z-index:1}.cycle-action-btn.hidden{display:none!important}
