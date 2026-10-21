@@ -10,7 +10,7 @@
 .quick-counter-label{margin:0;color:var(--muted);font-size:13px;font-weight:700;overflow-wrap:anywhere}
 .quick-counter-value{display:block;font-size:clamp(64px,15vw,112px);line-height:1.15;font-weight:850;letter-spacing:-.06em;font-variant-numeric:tabular-nums;padding:20px 0 25px;overflow-wrap:anywhere}
 .quick-counter-controls{display:flex;justify-content:center;gap:12px;align-items:stretch}
-.quick-counter-controls button{min-height:64px;border-radius:16px;font-size:27px;font-weight:850;cursor:pointer}
+.quick-counter-controls button{min-height:64px;border-radius:16px;font-size:27px;font-weight:850;cursor:pointer;touch-action:manipulation;transition:transform .12s ease,box-shadow .12s ease}
 .quick-minus{width:84px;border:1px solid var(--line);background:var(--surface2);color:var(--text)}
 .quick-minus:disabled{opacity:.4;cursor:not-allowed}
 .quick-plus{flex:1;max-width:280px;border:0;background:var(--accent);color:#24200d}
