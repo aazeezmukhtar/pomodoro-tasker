@@ -27,3 +27,17 @@
 
 /* Visible task-linked focus progress, shown after at least one completed session. */
 .task-focus-progress{margin-top:11px;max-width:360px}.task-focus-progress-label{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px;color:var(--muted);font-size:10px;line-height:1.4}.task-focus-progress-label span:last-child{font-variant-numeric:tabular-nums;text-align:right}.task-focus-progress-track{height:6px;overflow:hidden;background:var(--panel2);border-radius:999px;border:1px solid var(--line)}.task-focus-progress-track>span{display:block;height:100%;max-width:100%;background:var(--accent);border-radius:999px;transition:width .2s ease}
+
+/* Weekly productivity report */
+.weekly-report{margin-top:26px;padding:20px;background:var(--panel);border:1px solid var(--line);border-radius:18px;min-width:0}
+.report-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:17px}
+.report-heading .eyebrow{margin-bottom:5px}.report-heading h2{font:750 21px Manrope,sans-serif;letter-spacing:-.5px;margin:0}
+.report-badge{font-size:9px;font-weight:800;letter-spacing:.8px;color:var(--muted);background:var(--panel2);border:1px solid var(--line);padding:7px 9px;border-radius:8px;white-space:nowrap}
+.report-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.report-metric{min-width:0;padding:12px 10px;background:var(--panel2);border:1px solid var(--line);border-radius:12px;display:grid;gap:7px}
+.report-metric span{font-size:10px;line-height:1.35;color:var(--muted)}.report-metric strong{font:750 clamp(15px,3vw,20px) Manrope,sans-serif;overflow-wrap:anywhere}
+.weekly-chart{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px;align-items:stretch;margin-top:18px;padding:13px 8px 10px;border:1px solid var(--line);border-radius:13px;background:var(--bg);min-height:155px}
+.week-day{display:flex;min-width:0;flex-direction:column;align-items:center;gap:6px}.week-bar-area{height:95px;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:5px}.week-bar-value{font-size:9px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}.week-bar{width:min(24px,72%);min-height:3px;background:var(--line);border-radius:6px 6px 3px 3px}.week-bar.has-value{background:var(--accent)}.week-day-label{font-size:10px;font-weight:800;color:var(--text)}.week-day-tasks{font-size:9px;color:var(--muted);white-space:nowrap}
+.report-note{font-size:10px;line-height:1.5;color:var(--muted);margin:12px 1px 0}
+:root[data-theme="light"] .weekly-report{background:var(--surface);border-color:var(--line)}:root[data-theme="light"] .weekly-chart{background:#f7f9f4}
+@media(max-width:420px){.weekly-report{padding:14px 10px}.report-summary{gap:5px}.report-metric{padding:10px 7px}.report-metric span{font-size:9px}.weekly-chart{gap:3px;padding-left:4px;padding-right:4px}.week-day-tasks{font-size:8px}.report-badge{font-size:8px;padding:6px}}

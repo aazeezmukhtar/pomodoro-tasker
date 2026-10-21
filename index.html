@@ -30,6 +30,16 @@
 <div id="taskList" class="task-list"></div><div id="emptyState" class="empty-state"><div class="empty-icon">✳</div><h3>A fresh start.</h3><p>Add a task to make a plan for today.</p><button class="btn btn-primary" id="emptyAdd">＋ Add your first task</button></div>
 </section>
 <section class="stats-grid"><article class="stat-card"><span class="stat-icon">◷</span><div><p class="stat-label">FOCUS TIME TODAY</p><strong id="focusTotal">0 min</strong></div></article><article class="stat-card"><span class="stat-icon">✓</span><div><p class="stat-label">TASKS COMPLETED</p><strong id="completedTotal">0</strong></div></article></section>
+<section class="weekly-report" aria-labelledby="weeklyReportTitle">
+ <div class="report-heading"><div><p class="eyebrow">YOUR MOMENTUM</p><h2 id="weeklyReportTitle">Last 7 days</h2></div><span class="report-badge">WEEKLY REPORT</span></div>
+ <div class="report-summary">
+  <article class="report-metric"><span>Task-linked focus</span><strong id="weekFocusTotal">0 min</strong></article>
+  <article class="report-metric"><span>Tasks completed</span><strong id="weekTasksTotal">0</strong></article>
+  <article class="report-metric"><span>Daily focus average</span><strong id="weekAverage">0 min/day</strong></article>
+ </div>
+ <div class="weekly-chart" id="weekChart" aria-label="Task-linked focus minutes and completed tasks for the last seven days"></div>
+ <p class="report-note">Focus history starts recording from this update onward. Older focus totals remain on their tasks but cannot be assigned to past dates.</p>
+</section>
 <footer><span>Made for a more intentional day.</span><button id="exportBtn" class="text-btn">Export backup</button><button id="importBtn" class="text-btn">Import</button><input id="importFile" type="file" accept="application/json" hidden></footer>
 </main>
 <div id="toast" class="toast" role="status" aria-live="polite"></div>

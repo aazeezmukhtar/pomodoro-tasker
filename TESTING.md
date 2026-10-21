@@ -20,6 +20,7 @@ Run checks on HTTPS or a local static server (python -m http.server 8080). Brows
 - [ ] Start, pause, resume, reset, and switch 25/5/15-minute presets.
 - [ ] Start a timer from a task and confirm the task label and focus-time accounting.
 - [ ] Complete a task-linked focus session and verify its logged minutes and progress bar update; confirm no progress appears before any focus time is logged.
+- [ ] Complete task-linked focus sessions on different dates and verify the rolling 7-day report, daily bars, and completed-task counts; verify older totals are not misrepresented as dated history.
 - [ ] Test a short expiry and confirm completion feedback and accounting happen once.
 - [ ] Reload during a running timer and verify remaining time is reconciled correctly.
 
